@@ -9,3 +9,12 @@
   color: white;
   text-align: center;
 }
+
+.myText {
+  color: #a1a1a1;
+  border: 4px solid black;
+}
+
+.myText.special {
+  font-size: 60px;
+}

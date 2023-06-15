@@ -1,0 +1,22 @@
+@value cardColor: green;
+@value nameColor: #a1a1a1;
+
+.card {
+  border: 1px dashed cardColor;
+  padding: 16px;
+}
+
+.text {
+  color: blue;
+  text-align: left;
+}
+
+.name {
+  color: nameColor;
+  font-family: 'Kablammo';
+}
+
+.textRight {
+  compose: text;
+  text-align: right;
+}

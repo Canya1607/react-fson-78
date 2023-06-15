@@ -1,40 +1,34 @@
-import { Product } from ".";
-import "./App.css";
+import { useState } from 'react';
+import './App.css';
+import { Card } from './components/Card/Card';
+import PropTypes from 'prop-types';
+import clsx from 'clsx';
 
-const products = [
-  {
-    id: "p-1",
-    showTitle: false,
-    imageUrl: "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?dpr=2&h=480&w=640",
-    price: 10.99,
-  },
-  {
-    id: "p-2",
-    showTitle: true,
-    imageUrl: "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?dpr=2&h=480&w=640",
-    price: 10.99,
-  },
-  {
-    id: "p-3",
-    showTitle: true,
-    imageUrl: "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?dpr=2&h=480&w=640",
-    price: 100.11,
-  },
-];
+function App({ special = false }) {
+  const [clicked, setClicked] = useState(false);
 
-function App() {
+  const className = clsx(
+    'myText',
+    {
+      'special': special
+    }
+  )
+
+  const bColor = clicked ? 'red' : 'blue';
+
   return (
-    <div className="App">
-      {products.map((product, index) => (
-        <Product
-          key={product.id}
-          showTitle={product.showTitle}
-          imageUrl={product.imageUrl}
-          productPrice={product.price && product.price} // undefined null '' 0
-        />
-      ))}
+    <div className='App'>
+      <Card fName='Alex' sName='Hnennyi' />
+      <p className={className} style={{ backgroundColor: bColor }}>
+        My Text
+      </p>
+      <button onClick={() => setClicked(!clicked)}>Click me</button>
     </div>
   );
 }
+
+App.propTypes = {
+  special: PropTypes.bool
+};
 
 export default App;
