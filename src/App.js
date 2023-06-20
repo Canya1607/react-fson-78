@@ -3,6 +3,7 @@ import './App.css';
 import { Card } from './components/Card/Card';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
+import Counter from './components/Counter/Counter';
 
 function App({ special = false }) {
   const [clicked, setClicked] = useState(false);
@@ -23,6 +24,7 @@ function App({ special = false }) {
         My Text
       </p>
       <button onClick={() => setClicked(!clicked)}>Click me</button>
+      <Counter startValue={1} />
     </div>
   );
 }
